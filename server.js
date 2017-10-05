@@ -16,9 +16,22 @@ Parse.serverURL = 'https://eventkey.herokuapp.com/parse'
 
 
 
-Parse.Cloud.define("getCheckIn", function(request, response) {
-  console.log("this is response ",request) ;
-});
+
+
+//Unsuccessful
+// console.log(Parse.User.current());
+// var query = new Parse.Query('userId');
+// console.log(query);
+
+//  query.find("userId":"X8RVN508nc")
+//     .then(function(messages) {
+//       response.success(messages);
+//     });
+
+// Not defined
+// Parse.Cloud.define("getCheckIn", function(request, response) {
+//   console.log("this is response ",request) ;
+// });
 
 /////need master key for this attempt
 
