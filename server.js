@@ -6,28 +6,48 @@ var request = require("request");
 var app = express();
 var path = require("path");
 var Parse = require('parse/node');
-var ParseServer=require("parse-server");
+var ParseServer = require("parse-server").ParseServer;
 var PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 Parse.initialize("f3U4dybGW4Uk5BDIMMVWmN1Mnn142P3XFv8eigwn");
-Parse.serverURL = 'https://eventkey.herokuapp.com/parse/classes'
+Parse.serverURL = 'https://eventkey.herokuapp.com/parse'
 
 
 
-var userId = Parse.Object.extend("userId");
-console.log("USERID",userId);
-var query = new Parse.Query(userId);
-query.get("X8RVN508nc", {
-  success: function(results) {
-   console.log(gameScore)
-  },
-  error: function(object, error) {
-    console.log("this is the error", error);
-    console.log("this is the object ",object);
-  }
+Parse.Cloud.define("getCheckIn", function(request, response) {
+  console.log("this is response ",request) ;
 });
+
+/////need master key for this attempt
+
+// var api = new ParseServer({
+//   appId: "f3U4dybGW4Uk5BDIMMVWmN1Mnn142P3XFv8eigwn",
+//   serverURL: "https://eventkey.herokuapp.com/parse"
+// });
+
+// app.use('/parse', api);
+
+
+// Need class or object name for this attempt
+
+// var userId = Parse.Object.extend("userId");
+// console.log("USERID",userId);
+// var query = new Parse.Query(userId);
+// query.get("X8RVN508nc", {
+//   success: function(results) {
+//    console.log(gameScore)
+//   },
+//   error: function(object, error) {
+//     console.log("this is the error", error);
+//     console.log("this is the object ",object);
+//   }
+// });
+
+
+
+///Unsuccessful
 // Parse.Cloud.httpRequest({
 //     url: 'https://eventkey.herokuapp.com/parse'
 //   }).then(function(httpResponse) {
@@ -38,6 +58,8 @@ query.get("X8RVN508nc", {
 //     console.error('Request failed with response code ' + httpResponse.status);
 //   });
 
+
+//Unsuccessful
 // Parse.Promise run(getCheckIn, X8RVN508nc, results );
 // console.log(results); 
 // class Event extends Parse.Object {
@@ -55,15 +77,17 @@ query.get("X8RVN508nc", {
 
 //   }
 
-userId.fetch({
-  success: function(myObject) {
-    console.log("MyOBJECT",myObject);
-  },
-  error: function(myObject, error) {
-    console.log("err", error);
-    console.log("myObject err", myObject);
-  }
-});
+
+//Need Object or classname for this attempt
+// userId.fetch({
+//   success: function(myObject) {
+//     console.log("MyOBJECT",myObject);
+//   },
+//   error: function(myObject, error) {
+//     console.log("err", error);
+//     console.log("myObject err", myObject);
+//   }
+// });
 
 
 app.use(function(req, res, next) {
