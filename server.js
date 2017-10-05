@@ -12,13 +12,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 Parse.initialize("f3U4dybGW4Uk5BDIMMVWmN1Mnn142P3XFv8eigwn");
-Parse.serverURL = 'https://eventkey.herokuapp.com/parse'
+Parse.serverURL = 'https://eventkey.herokuapp.com/parse/classes'
 
 
 
-// var event = getCheckIn("X8RVN508nc");
-console.log(event);
-var query = new Parse.Query();
+var userId = Parse.Object.extend("userId");
+console.log("USERID",userId);
+var query = new Parse.Query(userId);
 query.get("X8RVN508nc", {
   success: function(results) {
    console.log(gameScore)
@@ -28,16 +28,42 @@ query.get("X8RVN508nc", {
     console.log("this is the object ",object);
   }
 });
+// Parse.Cloud.httpRequest({
+//     url: 'https://eventkey.herokuapp.com/parse'
+//   }).then(function(httpResponse) {
+//     console.log(httpResponse)
+//     console.log(httpResponse.text);
+//   },function(httpResponse) {
+//    console.log(httpResponse);
+//     console.error('Request failed with response code ' + httpResponse.status);
+//   });
 
-// getCheckIn.fetch({
-//   success: function(myObject) {
-//     console.log("MyOBJECT",myObject);
-//   },
-//   error: function(myObject, error) {
-//     console.log("err", error);
-//     console.log("myObject err", myObject);
+// Parse.Promise run(getCheckIn, X8RVN508nc, results );
+// console.log(results); 
+// class Event extends Parse.Object {
+//   constructor() {
+//     // Pass the ClassName to the Parse.Object constructor
+//     super('Event');
+//     // All other initialization
+//     this.ObjectId = 'X8RVN508nc';
+//     this.getCheckIn = this.getCheckIn.bind(this);
 //   }
-// });
+
+//   getCheckIn(X8RVN508nc) {
+//     return ;
+//   }
+
+//   }
+
+userId.fetch({
+  success: function(myObject) {
+    console.log("MyOBJECT",myObject);
+  },
+  error: function(myObject, error) {
+    console.log("err", error);
+    console.log("myObject err", myObject);
+  }
+});
 
 
 app.use(function(req, res, next) {
