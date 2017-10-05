@@ -15,10 +15,29 @@ Parse.initialize("f3U4dybGW4Uk5BDIMMVWmN1Mnn142P3XFv8eigwn");
 Parse.serverURL = 'https://eventkey.herokuapp.com/parse'
 
 
+// this is just a "wrapper" for the simple JS function
+Parse.Cloud.define("getCheckIn", function(request, response) {
+  
+    console.log(request);
+    console.log(response);
+    
+    // 2) call an unwrapped function by the same name (this assumes it returns a promise)
+    getCheckIn(X8RVN508nc).then(function(result) {
+        // invoke response success and error
+        response.success(result);
+    }, function(error) {
+        response.error(error);
+    });
+});
+
+// always have an unwrapped function named identically
+getCheckIn(X8RVN508nc);
+
 
 
 
 //Unsuccessful
+
 // console.log(Parse.User.current());
 // var query = new Parse.Query('userId');
 // console.log(query);
@@ -29,9 +48,13 @@ Parse.serverURL = 'https://eventkey.herokuapp.com/parse'
 //     });
 
 // Not defined
+
+
 // Parse.Cloud.define("getCheckIn", function(request, response) {
 //   console.log("this is response ",request) ;
 // });
+
+
 
 /////need master key for this attempt
 
@@ -39,7 +62,6 @@ Parse.serverURL = 'https://eventkey.herokuapp.com/parse'
 //   appId: "f3U4dybGW4Uk5BDIMMVWmN1Mnn142P3XFv8eigwn",
 //   serverURL: "https://eventkey.herokuapp.com/parse"
 // });
-
 // app.use('/parse', api);
 
 
@@ -61,6 +83,7 @@ Parse.serverURL = 'https://eventkey.herokuapp.com/parse'
 
 
 ///Unsuccessful
+
 // Parse.Cloud.httpRequest({
 //     url: 'https://eventkey.herokuapp.com/parse'
 //   }).then(function(httpResponse) {
@@ -73,6 +96,7 @@ Parse.serverURL = 'https://eventkey.herokuapp.com/parse'
 
 
 //Unsuccessful
+
 // Parse.Promise run(getCheckIn, X8RVN508nc, results );
 // console.log(results); 
 // class Event extends Parse.Object {
@@ -92,6 +116,7 @@ Parse.serverURL = 'https://eventkey.herokuapp.com/parse'
 
 
 //Need Object or classname for this attempt
+
 // userId.fetch({
 //   success: function(myObject) {
 //     console.log("MyOBJECT",myObject);
