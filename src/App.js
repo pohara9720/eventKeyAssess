@@ -8,10 +8,20 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Herro</h1>
+          <ul>
+            <li>Need to make nav bar</li>
+            <li>intergrate bootstrap</li>
+            <li>new logo</li>
+            <li>react router</li>
+            <li>login</li>
+            <li>maketurn up link</li>
+
+
+          </ul>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          
         </p>
       </div>
     );
