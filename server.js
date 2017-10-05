@@ -14,24 +14,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 Parse.initialize("f3U4dybGW4Uk5BDIMMVWmN1Mnn142P3XFv8eigwn");
 Parse.serverURL = 'https://eventkey.herokuapp.com/parse'
 
+// console.log(Parse.Cloud.define);
 
-// this is just a "wrapper" for the simple JS function
-Parse.Cloud.define("getCheckIn", function(request, response) {
-  
-    console.log(request);
-    console.log(response);
+//Doesnt return a response
+
+// Parse.Cloud.define("getCheckIn", function(req, res) {
+//     res.success("HELLO")
+//     console.log(req);
+//     console.log(res);
     
-    // 2) call an unwrapped function by the same name (this assumes it returns a promise)
-    getCheckIn(X8RVN508nc).then(function(result) {
-        // invoke response success and error
-        response.success(result);
-    }, function(error) {
-        response.error(error);
-    });
-});
+//     // 2) call an unwrapped function by the same name (this assumes it returns a promise)
+//     getCheckIn(X8RVN508nc).then(function(result) {
+//         // invoke response success and error
+//         response.success(result);
+//     }, function(error) {
+//         response.error(error);
+//     });
+// });
 
 // always have an unwrapped function named identically
-getCheckIn(X8RVN508nc);
+// getCheckIn(X8RVN508nc);
 
 
 
