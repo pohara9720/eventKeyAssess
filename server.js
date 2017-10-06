@@ -14,6 +14,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 Parse.initialize("f3U4dybGW4Uk5BDIMMVWmN1Mnn142P3XFv8eigwn");
 Parse.serverURL = 'https://eventkey.herokuapp.com/parse'
 
+    
+
+Parse.Cloud.run("getCheckIn", {userId: "X8RVN508nc"}).then(function(results){
+  // console.log(results);
+      
+  })
+
+
+// module.exports = Cloud;
+
+
 // console.log(Parse.Cloud.define);
 
 //Doesnt return a response

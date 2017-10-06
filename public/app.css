@@ -1,28 +1,33 @@
-.App {
+.container{
   text-align: center;
+  height: 100% !important;
+}
+.jumbotron{
+  background-color: white !important;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 190px;
+  /*margin-top: px;*/
 }
-
-.App-header {
-  background-color: #222;
-  height: 350px;
-  padding: 20px;
-  color: white;
+.title{
+  margin-top: -50px;
+  font-size: 30px;
 }
-
-.App-title {
-  font-size: 1.5em;
+.load-text{
+  margin-top:-20px;
+  margin-bottom: 50px;
 }
-
-.App-intro {
-  font-size: large;
+.loading{
+  height: 400px;
+  width: 400px;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.card{
+  margin-bottom: 20px;
 }

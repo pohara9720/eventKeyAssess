@@ -2,7 +2,14 @@ import '../public/app.css';
 import React from "react"
 import helpers from "../utils/helpers.js"
 import Card from "./Card.js"
+import Parse from "parse/node"
 
+
+
+Parse.Cloud.run("getCheckIn", {userId: "X8RVN508nc"}).then(function(results){
+  console.log("this is results",results);
+      
+  })
 
 class Grid extends React.Component{
 constructor(props){
@@ -16,6 +23,8 @@ this.state = {
 
    
 }
+
+
 
 componentWillMount(){
 ///grab events to display
